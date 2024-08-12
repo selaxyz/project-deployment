@@ -5,7 +5,7 @@ function App() {
 
   const handleFetch = async () => {
     try {
-      const res = await fetch('http://localhost:3002/api/v1/todos');
+      const res = await fetch('http://localhost:3001/api/v1/todos');
       const jdata = await res.json();
       setData(jdata.data.todos);
     } catch (error) {
