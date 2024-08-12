@@ -11,10 +11,11 @@ client
     console.error('Error connecting to PostgreSQL database', err);
   });
 
+
 const app = require('./app');
 
 
-const port = process.env.PORT_LOCAL;
+const port = process.env.SERVER_PORT;
 
 app.listen(port, () => {
   console.log(`LISTEN ON PORT: ${port}!`);
