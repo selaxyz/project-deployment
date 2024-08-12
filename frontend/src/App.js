@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function App() {
   const [data, setData] = useState([]);
 
+  const baseURL =
+    process.env.NODE_ENV === "production"
+      ? "api/v1/todos"
+      : "http://localhost:3001/api/v1/todos";
+
   const handleFetch = async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/v1/todos');
+      const res = await fetch(baseURL);
       const jdata = await res.json();
       setData(jdata.data.todos);
     } catch (error) {
@@ -29,7 +34,7 @@ function App() {
             <td>{todo.todo_id}</td>
             <td>{todo.title}</td>
             <td>{todo.description}</td>
-            <td>{todo.completed ? 'True' : 'False'}</td>
+            <td>{todo.completed ? "True" : "False"}</td>
           </tr>
         ))}
       </table>
