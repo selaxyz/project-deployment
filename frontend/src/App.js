@@ -5,14 +5,16 @@ function App() {
 
   const baseURL =
     process.env.NODE_ENV === "production"
-      ? "api/v1/todos"
+      ? "/api/v1/todos"
       : "http://localhost:3001/api/v1/todos";
 
   const handleFetch = async () => {
     try {
       const res = await fetch(baseURL);
-      const jdata = await res.json();
-      setData(jdata.data.todos);
+      if (res.ok) {
+        const jdata = await res.json();
+        setData(jdata.data.todos);
+      }
     } catch (error) {
       console.log(error);
     }
