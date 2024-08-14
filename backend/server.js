@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: '/home/ubuntu/.env' });
 
 const { client } = require('./database/connection');
 client
